@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Handjet } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const handjet = Handjet( { subsets: ["latin"] } );
 
 export const metadata: Metadata = {
   title: "Character Generator",
@@ -16,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={ handjet.className + ' ' + 'flex justify-center bg-gray-600'}>
+				<div className='container max-w-3xl'>
+					<div className="flex flex-col min-h-screen m-8 my-2 border-opacity-25 border-2 border-gray-500 border rounded p-2 outline-offset-1">
+						<Header />
+						{children}
+					</div>
+				</div>
+			</body>
     </html>
   );
 }
