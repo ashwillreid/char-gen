@@ -1,18 +1,18 @@
 export default async function Test() {
-
+	let data;
 	try {
 		const res = await fetch('http://localhost:3000', {
 			method: 'GET',
 		});
-		const data = await res.json()
 		console.log( 'data?', data )
+		data = await res.json()
 	} catch ( error ) {
 		console.log( error )
 	}
 
   return (
     <main>
-			huh
+			{ data.message }
 		</main>
   );
 }
