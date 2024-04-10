@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 export default function TextField({
   className,
   placeholder,
@@ -8,7 +8,7 @@ export default function TextField({
   className?: string;
   placeholder: string;
   val: string;
-  onUpdate: any;
+  onUpdate: Function;
 }>) {
   return (
     <div className={`w-48 m-1 ${className ?? className}`}>
