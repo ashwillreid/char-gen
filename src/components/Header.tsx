@@ -9,9 +9,12 @@ const Header = () => {
         <Image src="/crest.png" alt="Icon" width={50} height={50} />
         <p className="text-5xl ml-2">Character Generator</p>
       </Link>
-      <div>
+      <div className="flex">
         <Link href="/NewCharacter">
           <Button text="New Character" />
+        </Link>
+        <Link href="/test">
+          <Button text="API TEST PAGE" />
         </Link>
       </div>
     </div>
