@@ -25,7 +25,7 @@ export default function NewCharacter() {
       <Select
         label="Race"
         options={raceOptions}
-        val={charClass}
+        val={race}
         onUpdate={setRace}
       />
     </>
