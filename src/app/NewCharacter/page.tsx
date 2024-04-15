@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import TextField from "@/components/Inputs/TextField";
 import Select from "@/components/Inputs/Select";
 import { classOptions, raceOptions } from "../../../static/charOptions";
+import FormRow from "@/components/FormRow";
 
 export default function NewCharacter() {
   const [name, setName] = useState("");
@@ -15,19 +16,26 @@ export default function NewCharacter() {
 
   return (
     <>
-      <TextField placeholder="Name" onUpdate={setName} val={name} />
-      <Select
-        label="Class"
-        options={classOptions}
-        val={charClass}
-        onUpdate={setCharClass}
-      />
-      <Select
-        label="Race"
-        options={raceOptions}
-        val={race}
-        onUpdate={setRace}
-      />
+      <div className="flex flex-col items-center md:items-start">
+        <FormRow>
+          <TextField placeholder="Name" onUpdate={setName} val={name} />
+          <TextField placeholder="Age" onUpdate={setName} val={name} />
+        </FormRow>
+        <FormRow>
+          <Select
+            label="Class"
+            options={classOptions}
+            val={charClass}
+            onUpdate={setCharClass}
+          />
+          <Select
+            label="Race"
+            options={raceOptions}
+            val={race}
+            onUpdate={setRace}
+          />
+        </FormRow>
+      </div>
     </>
   );
 }
