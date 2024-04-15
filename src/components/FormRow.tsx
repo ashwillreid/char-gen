@@ -4,7 +4,7 @@ export default function FormRow({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="m-2 w-full flex flex-col items-center md:flex-row md:justify-center">
+    <div className="w-full flex flex-col items-center md:flex-row md:justify-center md:m-1">
       {children}
     </div>
   );
