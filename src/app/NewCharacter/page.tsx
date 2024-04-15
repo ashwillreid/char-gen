@@ -7,6 +7,7 @@ import FormRow from "@/components/FormRow";
 
 export default function NewCharacter() {
   const [name, setName] = useState("");
+  const [age, setAge] = useState("");
   const [charClass, setCharClass] = useState(classOptions[0].val);
   const [race, setRace] = useState(raceOptions[0].val);
 
@@ -19,7 +20,12 @@ export default function NewCharacter() {
       <div className="flex flex-col items-center md:items-start">
         <FormRow>
           <TextField placeholder="Name" onUpdate={setName} val={name} />
-          <TextField placeholder="Age" onUpdate={setName} val={name} />
+          <TextField
+            type="number"
+            placeholder="Age"
+            onUpdate={setAge}
+            val={age}
+          />
         </FormRow>
         <FormRow>
           <Select
