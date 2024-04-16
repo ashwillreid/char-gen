@@ -13,6 +13,9 @@ const Header = () => {
         <Link href="/NewCharacter">
           <Button text="New Character" />
         </Link>
+        <Link href="/characters">
+          <Button text="My Characters" />
+        </Link>
         <Link href="/test">
           <Button text="API TEST PAGE" />
         </Link>
