@@ -1,9 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TextField from "@/components/Inputs/TextField";
 import Select from "@/components/Inputs/Select";
 import { classOptions, raceOptions } from "../../../static/charOptions";
 import FormRow from "@/components/FormRow";
+import Button from "@/components/Button";
+import { mutation } from "../../../static/helpers/mutation";
 
 export default function NewCharacter() {
   const [name, setName] = useState("");
@@ -11,9 +13,18 @@ export default function NewCharacter() {
   const [charClass, setCharClass] = useState(classOptions[0].val);
   const [race, setRace] = useState(raceOptions[0].val);
 
-  useEffect(() => {
-    console.log("STATE:", { name: name, class: charClass, race: race });
-  }, [charClass, name, race]);
+  const createHandler = async () => {
+    const args = {
+      name: name,
+      age: age,
+      race: race,
+      charClass: charClass,
+    };
+
+    if (name && age && charClass && race) {
+      const character = await mutation("character/create", args);
+    }
+  };
 
   return (
     <>
@@ -40,6 +51,9 @@ export default function NewCharacter() {
             val={race}
             onUpdate={setRace}
           />
+        </FormRow>
+        <FormRow>
+          <Button text="CREATE" clickHandler={createHandler} />
         </FormRow>
       </div>
     </>
