@@ -4,12 +4,11 @@ export const mutation = async (path: string, args: any) => {
     const res = await fetch(`http://localhost:8080/v1/${path}`, {
       method: "POST",
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ args }),
     });
-    data = await res.json();
-    console.log("data?", data);
+    const data = await res.json();
   } catch (error) {
     console.log(error);
   }
