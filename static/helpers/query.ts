@@ -9,7 +9,6 @@ export const query = async (path: string, args?: JSON) => {
       body: args ? JSON.stringify({ args }) : undefined,
     });
     data = await res.json();
-    console.log("data?", data);
     return data;
   } catch (error) {
     console.log(error);
