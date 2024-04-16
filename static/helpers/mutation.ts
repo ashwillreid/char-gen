@@ -1,5 +1,4 @@
 export const mutation = async (path: string, args: any) => {
-  let data;
   try {
     const res = await fetch(`http://localhost:8080/v1/${path}`, {
       method: "POST",
