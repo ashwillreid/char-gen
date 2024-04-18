@@ -9,12 +9,13 @@ import { createCharacter } from "@/API/mutation/character";
 import { useRouter } from "next/navigation";
 
 export default function NewCharacter() {
+  const router = useRouter();
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [charClass, setCharClass] = useState(classOptions[0].val);
   const [race, setRace] = useState(raceOptions[0].val);
 
-  const router = useRouter();
   const createHandler = async () => {
     const args = {
       name: name,
@@ -25,9 +26,10 @@ export default function NewCharacter() {
 
     if (name && age && charClass && race) {
       const character = await createCharacter(args);
+      if (character) {
+        router.push("/characters");
+      }
     }
-
-    router.push("/characters");
   };
 
   return (

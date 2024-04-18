@@ -18,5 +18,5 @@ export const createCharacter = async ({
     charClass,
   };
 
-  const character = await mutation("character/create", args);
+  return await mutation("character/create", args);
 };
