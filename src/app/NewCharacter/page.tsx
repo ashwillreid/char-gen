@@ -6,6 +6,7 @@ import { classOptions, raceOptions } from "../../../static/charOptions";
 import FormRow from "@/components/FormRow";
 import Button from "@/components/Button";
 import { createCharacter } from "@/API/mutation/character";
+import { useRouter } from "next/navigation";
 
 export default function NewCharacter() {
   const [name, setName] = useState("");
@@ -13,6 +14,7 @@ export default function NewCharacter() {
   const [charClass, setCharClass] = useState(classOptions[0].val);
   const [race, setRace] = useState(raceOptions[0].val);
 
+  const router = useRouter();
   const createHandler = async () => {
     const args = {
       name: name,
@@ -24,6 +26,8 @@ export default function NewCharacter() {
     if (name && age && charClass && race) {
       const character = await createCharacter(args);
     }
+
+    router.push("/characters");
   };
 
   return (
