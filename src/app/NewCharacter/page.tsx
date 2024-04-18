@@ -5,9 +5,12 @@ import Select from "@/components/Inputs/Select";
 import { classOptions, raceOptions } from "../../../static/charOptions";
 import FormRow from "@/components/FormRow";
 import Button from "@/components/Button";
-import { mutation } from "../../../static/helpers/mutation";
+import { createCharacter } from "@/API/mutation/character";
+import { useRouter } from "next/navigation";
 
 export default function NewCharacter() {
+  const router = useRouter();
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [charClass, setCharClass] = useState(classOptions[0].val);
@@ -16,13 +19,16 @@ export default function NewCharacter() {
   const createHandler = async () => {
     const args = {
       name: name,
-      age: age,
+      age: parseInt(age),
       race: race,
       charClass: charClass,
     };
 
     if (name && age && charClass && race) {
-      const character = await mutation("character/create", args);
+      const character = await createCharacter(args);
+      if (character) {
+        router.push("/characters");
+      }
     }
   };
 

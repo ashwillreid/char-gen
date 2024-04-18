@@ -7,7 +7,7 @@ export const mutation = async (path: string, args: any) => {
       },
       body: JSON.stringify({ args }),
     });
-    const data = await res.json();
+    return await res.json();
   } catch (error) {
     console.log(error);
   }
