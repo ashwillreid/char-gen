@@ -1,4 +1,4 @@
-import { query } from "../../../static/helpers/query";
+import { getCharacters } from "@/API/query/character";
 import Link from "next/link";
 
 type Character = {
@@ -23,7 +23,7 @@ export default async function Test() {
     );
   };
 
-  const characters = await query("characters");
+  const characters = await getCharacters();
 
   return (
     <main>
