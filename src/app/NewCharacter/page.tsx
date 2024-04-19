@@ -59,7 +59,11 @@ export default function NewCharacter() {
           />
         </FormRow>
         <FormRow>
-          <Button text="CREATE" clickHandler={createHandler} />
+          <Button
+            text="CREATE"
+            clickHandler={createHandler}
+            type={{ submit: true }}
+          />
         </FormRow>
       </div>
     </>
